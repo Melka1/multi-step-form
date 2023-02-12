@@ -37,20 +37,24 @@ body {
         padding: 10px;
         display: flex;
         flex-direction: row;
-        gap: 20px;
+        // gap: 20px;
         border-radius: 15px;
         background: $White;
         .navigation {
-            width: 50%;
+            width: 40%;
             background: url('./assets/images/bg-sidebar-desktop.svg');
             background-position: center;
             border-radius: 10px;
             background-size: cover;
             border: none;
-            padding: 50px 40px;
+            padding: 50px 30px;
             ul li {
                 list-style: none;
                 margin-bottom: 30px;
+                &:nth-of-type(1) .order{
+                    background-color: $Light-blue;
+                    color: $Marine-blue;
+                }
                 &>div {
                     display: flex;
                     flex-direction: row;
@@ -66,7 +70,8 @@ body {
                         align-items: center;
                         justify-content: center;
                         p {
-                            //color: white;
+                            font-size: 0.9rem;
+                            font-weight: 600;
                         }
                     }
                     .desc {
@@ -98,27 +103,102 @@ body {
             form {
                 display: flex;
                 flex-direction: column;
-                width: 80%;
+                width: 75%;
                 height: 100%;
                 margin: auto;
-                h1, label {
-                    color: $Marine-blue;
-                }
-                p, label, input {
-                    font-weight: 500;
-                }
                 h1 {
-                    margin: 0;
+                    color: $Marine-blue;
+                    margin-bottom: 10px;
                 }
-                p {
+                &>p {
+                    font-weight: 500;
                     margin-bottom: 30px;
-                }
-                p, label {
                     font-size: 14px;
-                }
-                p, label, input {
                     color: $Cool-gray;
                 }
+
+                .personal {
+                    label {
+                        color: $Marine-blue;
+                        font-size: 14px;
+                    }
+                    label, input {
+                        font-weight: 500;
+                        color: $Cool-gray;
+                    }
+                }
+
+                .plan--choice {
+                    // border: 1px solid;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-auto-rows: auto;
+                    gap: 20px;
+                    .plan {
+                        padding: 15px;
+                        border: 1px solid $Light-gray;
+                        border-radius: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        // justify-content: space-between;
+                        img {
+                            width: fit-content;
+                            margin-bottom: 40px;
+                        }
+                        .plan--name {
+                            font-size: 0.9rem;
+                            color: $Marine-blue;
+                            font-weight: 700;
+                            margin-bottom: 10px;
+                        }
+                        .cost {
+                            font-size: 0.8rem;
+                            color: $Cool-gray;
+                            // font-weight: 700;
+                        }
+                        &:hover {
+                            border: 1px solid $Purplish-blue;
+                            cursor: pointer;
+                        }
+                    }
+                    .monYear {
+                        grid-column: 1/-1;
+                        // border: 1px solid;
+                        margin-top: 15px;
+                        height: 50px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 10px;
+                        background-color: $Magnolia;
+                        gap: 20px;
+                        p {
+                            font-size: 0.8rem;
+                            color: $Cool-gray;
+                        }
+                        
+                        .toggle {
+                            background: $Marine-blue;
+                            width: 30px;
+                            height: 16px;
+                            border-radius: 8px;
+                            display: flex;
+                            align-items: center;
+                            padding: 0 5px;
+                            .toggleBar {
+                                width: 8px;
+                                height: 8px;
+                                border-radius: 50%;
+                                background: white;
+                            }
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                }
+                
                 input {
                     height: 35px;
                     border-radius: 5px;
@@ -127,14 +207,40 @@ body {
                     padding-left: 15px;
                     font-weight: 600;
                 }
-                button {
-                    align-self: flex-end;
+                .nav--button{
                     margin-top: auto;
-                    padding: 12px 30px;
-                    background: $Marine-blue;
-                    border-radius: 7px;
-                    border: none;
-                    color: white;
+                    display: flex;
+                    justify-content: space-between;
+                    .next--step, button[type="submit"] {
+                        align-self: flex-end;
+                        padding: 12px 0;
+                        width: 120px;
+                        background: $Marine-blue;
+                        border-radius: 7px;
+                        border: none;
+                        color: white;
+                        margin-left: auto;
+                    }
+                    .go--back {
+                        background: transparent;
+                        display: none;
+                        border: none;
+                        font-weight: 700;
+                        color: $Cool-gray;
+                        &:hover {
+                            color: $Marine-blue;
+                            // font-weight: 800;
+                        }
+                    }
+                    button[type="submit"] {
+                        display: none;
+                        &:hover {
+                            background-color: $Purplish-blue;
+                        }
+                    }
+                    button:hover {
+                        cursor: pointer;
+                    }
                 }
             }
         }
@@ -149,4 +255,18 @@ body {
     a { 
         color: hsl(228, 45%, 44%); 
     }
+}
+
+.left {
+    margin-left: auto;
+}
+
+.choseTime {
+    color: $Marine-blue !important;
+    font-weight: 600;
+}
+.ad {
+    font-size: 0.7rem;
+    color: $Marine-blue;
+    margin-top: 10px;
 }

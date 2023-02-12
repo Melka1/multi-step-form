@@ -99,3 +99,14 @@
   to email us at support@loremgaming.com.
 
   <!-- Step 5 end -->
+
+
+
+  <div id="root" class="personal">
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="e.g. Stephen King">
+    <label for="email">Email Address</label>
+    <input type="email" name="email" id="email" placeholder="e,g, stephenking@lorem.com">
+    <label for="phone--number">Phone Number</label>
+    <input type="tel" name="tel" id="phone--number" placeholder="e.g. +1 234 567 890">
+  </div>

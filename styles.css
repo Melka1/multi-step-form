@@ -28,22 +28,25 @@ body main {
   padding: 10px;
   display: flex;
   flex-direction: row;
-  gap: 20px;
   border-radius: 15px;
   background: hsl(0deg, 0%, 100%);
 }
 body main .navigation {
-  width: 50%;
+  width: 40%;
   background: url("./assets/images/bg-sidebar-desktop.svg");
   background-position: center;
   border-radius: 10px;
   background-size: cover;
   border: none;
-  padding: 50px 40px;
+  padding: 50px 30px;
 }
 body main .navigation ul li {
   list-style: none;
   margin-bottom: 30px;
+}
+body main .navigation ul li:nth-of-type(1) .order {
+  background-color: hsl(206deg, 94%, 87%);
+  color: hsl(213deg, 96%, 18%);
 }
 body main .navigation ul li > div {
   display: flex;
@@ -60,6 +63,10 @@ body main .navigation ul li > div .order {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+body main .navigation ul li > div .order p {
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 body main .navigation ul li > div .desc {
   display: flex;
@@ -87,27 +94,92 @@ body main .form input, body main .form label {
 body main .form form {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 75%;
   height: 100%;
   margin: auto;
 }
-body main .form form h1, body main .form form label {
-  color: hsl(213deg, 96%, 18%);
-}
-body main .form form p, body main .form form label, body main .form form input {
-  font-weight: 500;
-}
 body main .form form h1 {
-  margin: 0;
+  color: hsl(213deg, 96%, 18%);
+  margin-bottom: 10px;
 }
-body main .form form p {
+body main .form form > p {
+  font-weight: 500;
   margin-bottom: 30px;
+  font-size: 14px;
+  color: hsl(231deg, 11%, 63%);
 }
-body main .form form p, body main .form form label {
+body main .form form .personal label {
+  color: hsl(213deg, 96%, 18%);
   font-size: 14px;
 }
-body main .form form p, body main .form form label, body main .form form input {
+body main .form form .personal label, body main .form form .personal input {
+  font-weight: 500;
   color: hsl(231deg, 11%, 63%);
+}
+body main .form form .plan--choice {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: 20px;
+}
+body main .form form .plan--choice .plan {
+  padding: 15px;
+  border: 1px solid hsl(229deg, 24%, 87%);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+body main .form form .plan--choice .plan img {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 40px;
+}
+body main .form form .plan--choice .plan .plan--name {
+  font-size: 0.9rem;
+  color: hsl(213deg, 96%, 18%);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+body main .form form .plan--choice .plan .cost {
+  font-size: 0.8rem;
+  color: hsl(231deg, 11%, 63%);
+}
+body main .form form .plan--choice .plan:hover {
+  border: 1px solid hsl(243deg, 100%, 62%);
+  cursor: pointer;
+}
+body main .form form .plan--choice .monYear {
+  grid-column: 1/-1;
+  margin-top: 15px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: hsl(217deg, 100%, 97%);
+  gap: 20px;
+}
+body main .form form .plan--choice .monYear p {
+  font-size: 0.8rem;
+  color: hsl(231deg, 11%, 63%);
+}
+body main .form form .plan--choice .monYear .toggle {
+  background: hsl(213deg, 96%, 18%);
+  width: 30px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+body main .form form .plan--choice .monYear .toggle .toggleBar {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+body main .form form .plan--choice .monYear .toggle:hover {
+  cursor: pointer;
 }
 body main .form form input {
   height: 35px;
@@ -117,14 +189,39 @@ body main .form form input {
   padding-left: 15px;
   font-weight: 600;
 }
-body main .form form button {
-  align-self: flex-end;
+body main .form form .nav--button {
   margin-top: auto;
-  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+body main .form form .nav--button .next--step, body main .form form .nav--button button[type=submit] {
+  align-self: flex-end;
+  padding: 12px 0;
+  width: 120px;
   background: hsl(213deg, 96%, 18%);
   border-radius: 7px;
   border: none;
   color: white;
+  margin-left: auto;
+}
+body main .form form .nav--button .go--back {
+  background: transparent;
+  display: none;
+  border: none;
+  font-weight: 700;
+  color: hsl(231deg, 11%, 63%);
+}
+body main .form form .nav--button .go--back:hover {
+  color: hsl(213deg, 96%, 18%);
+}
+body main .form form .nav--button button[type=submit] {
+  display: none;
+}
+body main .form form .nav--button button[type=submit]:hover {
+  background-color: hsl(243deg, 100%, 62%);
+}
+body main .form form .nav--button button:hover {
+  cursor: pointer;
 }
 
 .attribution {
@@ -133,4 +230,19 @@ body main .form form button {
 }
 .attribution a {
   color: hsl(228deg, 45%, 44%);
+}
+
+.left {
+  margin-left: auto;
+}
+
+.choseTime {
+  color: hsl(213deg, 96%, 18%) !important;
+  font-weight: 600;
+}
+
+.ad {
+  font-size: 0.7rem;
+  color: hsl(213deg, 96%, 18%);
+  margin-top: 10px;
 }/*# sourceMappingURL=styles.css.map */

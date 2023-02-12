@@ -57,13 +57,41 @@
       <form action="#">
         <h1>Personal info</h1>
         <p>Please provide your name, email address, and phone number.</p>
-        <label for="name">Name</label>
-        <input type="text" id="name" placeholder="e.g. Stephen King">
-        <label for="email">Email Address</label>
-        <input type="email" name="email" id="email" placeholder="e,g, stephenking@lorem.com">
-        <label for="phone--number">Phone Number</label>
-        <input type="tel" name="tel" id="phone--number" placeholder="e.g. +1 234 567 890">
-        <button type="submit">Next Step</button>
+        <div id="root" class="plan--choice">
+          <div class="plan arcade">
+            <img src="./assets/images/icon-arcade.svg" alt="">
+            <div class="plan--info">
+              <p class="plan--name">Arcade</p>
+              <p class="cost">$9/mo</p>
+            </div>
+          </div>
+          <div class="plan advanced">
+            <img src="./assets/images/icon-advanced.svg" alt="">
+            <div class="plan--info">
+              <p class="plan--name">Advanced</p>
+              <p class="cost">$12/mo</p>
+            </div>
+          </div>
+          <div class="plan pro">
+            <img src="./assets/images/icon-pro.svg" alt="">
+            <div class="plan--info">
+              <p class="plan--name">Pro</p>
+              <p class="cost">$15/mo</p>
+            </div>
+          </div>
+          <div class="monYear">
+            <p class="choseTime">Monthly</p>
+            <div class="toggle" onclick="handleDurationChange()">
+              <div class="toggleBar"></div>
+            </div>
+            <p>Yearly</p>
+          </div>
+        </div>
+        <div class="nav--button">
+          <button onclick="pageChange(-1)" class="go--back">Go Back</button>
+          <button onclick="pageChange(1)" class="next--step">Next Step</button>
+          <button type="submit">Confirm</button>
+        </div>
       </form>
     </div>
   </main>
