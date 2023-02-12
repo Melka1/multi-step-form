@@ -11,12 +11,96 @@ $White: hsl(0, 0%, 100%);
 
 * {
     box-sizing: border-box;
+    // border: 1px solid;
+}
+html {
+    width: 100%;
+    height: 100%;
 }
 body {
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: $Magnolia;
+    gap: 20px;
+    main {
+        border: none;
+        width: 800px;
+        min-height: 500px;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        border-radius: 15px;
+        background: $White;
+        .navigation {
+            width: 40%;
+            background: url('./assets/images/bg-sidebar-desktop.svg');
+            background-position: center;
+            border-radius: 10px;
+            background-size: cover;
+            border: none;
+        }
+        .form {
+            width: -webkit-fill-available;
+            input, label {
+                display: block;
+                width: 100%;
+                margin-top: 10px;
+            }
+            padding-top: 30px;
+            padding-bottom: 20px;
+            form {
+                display: flex;
+                flex-direction: column;
+                h1, label {
+                    color: $Marine-blue;
+                }
+                p, label, input {
+                    font-weight: 500;
+                }
+                h1 {
+                    margin: 0;
+                }
+                p {
+                    margin-bottom: 30px;
+                }
+                p, label {
+                    font-size: 14px;
+                }
+                p, label, input {
+                    color: $Cool-gray;
+                }
+                width: 75%;
+                height: 100%;
+                margin: auto;
+                input {
+                    height: 35px;
+                    border-radius: 5px;
+                    margin-bottom: 10px;
+                    border: 1px solid $Cool-gray;
+                    padding-left: 15px;
+                    font-weight: 600;
+                }
+                button {
+                    align-self: flex-end;
+                    margin-top: auto;
+                    padding: 12px 30px;
+                    background: $Marine-blue;
+                    border-radius: 7px;
+                    border: none;
+                    color: white;
+                }
+            }
+        }
+    }
 }
 
 
