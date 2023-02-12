@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -10,8 +12,6 @@ html {
 body {
   font-family: "Ubuntu", sans-serif;
   font-size: 16px;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,12 +33,46 @@ body main {
   background: hsl(0deg, 0%, 100%);
 }
 body main .navigation {
-  width: 40%;
+  width: 50%;
   background: url("./assets/images/bg-sidebar-desktop.svg");
   background-position: center;
   border-radius: 10px;
   background-size: cover;
   border: none;
+  padding: 50px 40px;
+}
+body main .navigation ul li {
+  list-style: none;
+  margin-bottom: 30px;
+}
+body main .navigation ul li > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  color: white;
+}
+body main .navigation ul li > div .order {
+  width: 30px;
+  height: 30px;
+  border: 1px solid hsl(229deg, 24%, 87%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main .navigation ul li > div .desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+body main .navigation ul li > div .desc .order--level {
+  font-size: 0.7rem;
+  color: hsl(229deg, 24%, 87%);
+}
+body main .navigation ul li > div .desc .order--name {
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 body main .form {
   width: -webkit-fill-available;
@@ -53,7 +87,7 @@ body main .form input, body main .form label {
 body main .form form {
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 80%;
   height: 100%;
   margin: auto;
 }
