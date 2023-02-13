@@ -1,5 +1,7 @@
 let page = 1;
 let mon = true;
+let chosePlan;
+let addons = [false, false, false] 
 
 let pagesInfo = [
     {title:"Personal Info", subTitle:"Please provide ypur name, email address, and phone number."},
@@ -60,5 +62,19 @@ function handleDurationChange(){
     $(".toggle .toggleBar").toggleClass("left")
     $("#root .monYear p").toggleClass("choseTime")
     
-    
+}
+
+function choosePlan(id){
+    $(`#root .plan`).css("border-color","hsl(229, 24%, 87%)")
+    $("#root .plan").css("background-color","transparent")
+    $(`#root .plan:nth-of-type(${id+1})`).css("border-color","hsl(243, 100%, 62%)")
+    $(`#root .plan:nth-of-type(${id+1})`).css("background-color","hsl(217, 100%, 97%)")
+
+    chosePlan = id
+}
+
+function choseAddon(id){
+    addons[id] = !addons[id]
+    $(`#root>div:nth-of-type(${id+1}) input`).attr("checked",addons[id])
+    $(`#root>div:nth-of-type(${id+1})`).css("border-color", addons[id]?"hsl(243, 100%, 62%)":"hsl(229, 24%, 87%)")
 }

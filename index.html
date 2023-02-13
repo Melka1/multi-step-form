@@ -57,34 +57,39 @@
       <form action="#">
         <h1>Personal info</h1>
         <p>Please provide your name, email address, and phone number.</p>
-        <div id="root" class="plan--choice">
-          <div class="plan arcade">
-            <img src="./assets/images/icon-arcade.svg" alt="">
-            <div class="plan--info">
-              <p class="plan--name">Arcade</p>
-              <p class="cost">$9/mo</p>
+        <div id="root" class="add--ons">
+          <div class="online--service" onclick="choseAddon(0)">
+            <div class="addon--checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
             </div>
+            <div class="add--ons--info">
+              <p class="addon--name">Online Service</p>
+              <p class="addon--desc">Access to multiplayer games</p>
+            </div>
+            <p class="addon--cost">+1$/mo</p>
           </div>
-          <div class="plan advanced">
-            <img src="./assets/images/icon-advanced.svg" alt="">
-            <div class="plan--info">
-              <p class="plan--name">Advanced</p>
-              <p class="cost">$12/mo</p>
+          <div class="larger--storage" onclick="choseAddon(1)">
+            <div class="addon--checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
             </div>
+            <div class="add--ons--info">
+              <p class="addon--name">Larger Storage</p>
+              <p class="addon--desc">Extra 1TB of cloud save</p>
+            </div>
+            <p class="addon--cost">+2$/mo</p>
           </div>
-          <div class="plan pro">
-            <img src="./assets/images/icon-pro.svg" alt="">
-            <div class="plan--info">
-              <p class="plan--name">Pro</p>
-              <p class="cost">$15/mo</p>
+          <div class="custom--profile" onclick="choseAddon(2)">
+            <div class="addon--checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
             </div>
-          </div>
-          <div class="monYear">
-            <p class="choseTime">Monthly</p>
-            <div class="toggle" onclick="handleDurationChange()">
-              <div class="toggleBar"></div>
+            <div class="add--ons--info">
+              <p class="addon--name">Customizable Profile</p>
+              <p class="addon--desc">Custom theme on your profile</p>
             </div>
-            <p>Yearly</p>
+            <p class="addon--cost">+2$/mo</p>
           </div>
         </div>
         <div class="nav--button">

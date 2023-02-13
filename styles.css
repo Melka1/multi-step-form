@@ -86,11 +86,6 @@ body main .form {
   padding-top: 30px;
   padding-bottom: 20px;
 }
-body main .form input, body main .form label {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-}
 body main .form form {
   display: flex;
   flex-direction: column;
@@ -108,6 +103,11 @@ body main .form form > p {
   font-size: 14px;
   color: hsl(231deg, 11%, 63%);
 }
+body main .form form .personal input, body main .form form .personal label {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
 body main .form form .personal label {
   color: hsl(213deg, 96%, 18%);
   font-size: 14px;
@@ -115,6 +115,14 @@ body main .form form .personal label {
 body main .form form .personal label, body main .form form .personal input {
   font-weight: 500;
   color: hsl(231deg, 11%, 63%);
+}
+body main .form form .personal input {
+  height: 35px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid hsl(231deg, 11%, 63%);
+  padding-left: 15px;
+  font-weight: 600;
 }
 body main .form form .plan--choice {
   display: grid;
@@ -145,7 +153,7 @@ body main .form form .plan--choice .plan .cost {
   color: hsl(231deg, 11%, 63%);
 }
 body main .form form .plan--choice .plan:hover {
-  border: 1px solid hsl(243deg, 100%, 62%);
+  border: 1px solid hsl(243deg, 100%, 62%) !important;
   cursor: pointer;
 }
 body main .form form .plan--choice .monYear {
@@ -181,13 +189,88 @@ body main .form form .plan--choice .monYear .toggle .toggleBar {
 body main .form form .plan--choice .monYear .toggle:hover {
   cursor: pointer;
 }
-body main .form form input {
-  height: 35px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  border: 1px solid hsl(231deg, 11%, 63%);
-  padding-left: 15px;
-  font-weight: 600;
+body main .form form .add--ons > div {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid;
+  padding: 20px;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid hsl(229deg, 24%, 87%);
+}
+body main .form form .add--ons > div:hover {
+  border-color: hsl(243deg, 100%, 62%) !important;
+  cursor: pointer;
+}
+body main .form form .add--ons > div .addon--checkbox {
+  width: 18px;
+  height: 18px;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+body main .form form .add--ons > div .addon--checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+body main .form form .add--ons > div .addon--checkbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+body main .form form .add--ons > div .addon--checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+body main .form form .add--ons > div .addon--checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+body main .form form .add--ons > div .addon--checkbox input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+body main .form form .add--ons > div .addon--checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+body main .form form .add--ons > div .addon--checkbox .checkmark:after {
+  left: 10px;
+  top: 6px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+body main .form form .add--ons > div .add--ons--info p {
+  line-height: 1.2rem;
+}
+body main .form form .add--ons > div .add--ons--info .addon--name {
+  font-size: 0.9rem;
+  color: hsl(213deg, 96%, 18%);
+  font-weight: 700;
+}
+body main .form form .add--ons > div .add--ons--info .addon--desc {
+  font-size: 0.8rem;
+  color: hsl(231deg, 11%, 63%);
+}
+body main .form form .add--ons > div .addon--cost {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: hsl(243deg, 100%, 62%);
 }
 body main .form form .nav--button {
   margin-top: auto;
