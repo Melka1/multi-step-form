@@ -209,13 +209,11 @@ body main .form form .add--ons > div .addon--checkbox {
   height: 18px;
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 body main .form form .add--ons > div .addon--checkbox input {
   position: absolute;
@@ -230,7 +228,8 @@ body main .form form .add--ons > div .addon--checkbox .checkmark {
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: #eee;
+  border: 1px solid hsl(229deg, 24%, 87%);
+  border-radius: 7px;
 }
 body main .form form .add--ons > div .addon--checkbox .checkmark:after {
   content: "";
@@ -247,8 +246,8 @@ body main .form form .add--ons > div .addon--checkbox input:checked ~ .checkmark
   display: block;
 }
 body main .form form .add--ons > div .addon--checkbox .checkmark:after {
-  left: 10px;
-  top: 6px;
+  left: 9px;
+  top: 5px;
   width: 4px;
   height: 8px;
   border: solid white;

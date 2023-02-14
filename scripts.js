@@ -77,4 +77,5 @@ function choseAddon(id){
     addons[id] = !addons[id]
     $(`#root>div:nth-of-type(${id+1}) input`).attr("checked",addons[id])
     $(`#root>div:nth-of-type(${id+1})`).css("border-color", addons[id]?"hsl(243, 100%, 62%)":"hsl(229, 24%, 87%)")
+    $(`#root>div:nth-of-type(${id+1})`).css("background-color", addons[id]?"hsl(217, 100%, 97%)":"transparent")
 }
