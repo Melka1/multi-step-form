@@ -5,11 +5,11 @@ let pages = [
         pageon : `
             <div id="root" class="personal">
                 <label for="name">Name</label>
-                <input type="text" id="name" placeholder="e.g. Stephen King">
+                <input onchange="handleChange('name')" type="text" id="name" placeholder="e.g. Stephen King">
                 <label for="email">Email Address</label>
-                <input type="email" name="email" id="email" placeholder="e,g, stephenking@lorem.com">
+                <input onchange="handleChange('email')" type="email" name="email" id="email" placeholder="e,g, stephenking@lorem.com">
                 <label for="phone--number">Phone Number</label>
-                <input type="tel" name="tel" id="phone--number" placeholder="e.g. +1 234 567 890">
+                <input onchange="handleChange('phone--number')" type="tel" name="tel" id="phone--number" placeholder="e.g. +1 234 567 890">
             </div>`, 
         value : {username:"", email:"", phoneNumber:""},
         title:"Personal Info", 
@@ -161,6 +161,9 @@ function checkState(e) {
             break;
         case 3:
             console.log("this is page three")
+            if(pages[2].value[0])choseAddon(0, "e");
+            if(pages[2].value[1])choseAddon(1, "e");
+            if(pages[2].value[2])choseAddon(2, "e");
             break;
         case 4:
             console.log("this is page four")
@@ -215,10 +218,22 @@ function choosePlan(id){
     console.log(pages[1])
 }
 
-function choseAddon(id){
-    pages[2].value[id] = !pages[2].value[id]
+function choseAddon(id, id2){
+    if(!id2){pages[2].value[id] = !pages[2].value[id]}
     $(`#root>div:nth-of-type(${id+1}) input`).attr("checked",pages[2].value[id])
     $(`#root>div:nth-of-type(${id+1})`).css("border-color", pages[2].value[id]?"hsl(243, 100%, 62%)":"hsl(229, 24%, 87%)")
     $(`#root>div:nth-of-type(${id+1})`).css("background-color", pages[2].value[id]?"hsl(217, 100%, 97%)":"transparent")
-    console.log(pages[2].value)
+}
+
+function handleChange(type){
+    let val = $(`.personal #${type}`).val();
+    console.log($(`.personal #${type}`).val())
+    switch(type){
+        case "name":
+            pages[0].value.username = val
+        case "email":
+            pages[0].value.email = val
+        case "phone--number":
+            pages[0].value.phoneNumber = val
+    }
 }
