@@ -143,3 +143,66 @@
     <p>Yearly</p>
   </div>
 </div>
+
+
+<div id="root" class="add--ons">
+  <div class="online--service" onclick="choseAddon(0)">
+    <div class="addon--checkbox">
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </div>
+    <div class="add--ons--info">
+      <p class="addon--name">Online Service</p>
+      <p class="addon--desc">Access to multiplayer games</p>
+    </div>
+    <p class="addon--cost">+1$/mo</p>
+  </div>
+  <div class="larger--storage" onclick="choseAddon(1)">
+    <div class="addon--checkbox">
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </div>
+    <div class="add--ons--info">
+      <p class="addon--name">Larger Storage</p>
+      <p class="addon--desc">Extra 1TB of cloud save</p>
+    </div>
+    <p class="addon--cost">+2$/mo</p>
+  </div>
+  <div class="custom--profile" onclick="choseAddon(2)">
+    <div class="addon--checkbox">
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </div>
+    <div class="add--ons--info">
+      <p class="addon--name">Customizable Profile</p>
+      <p class="addon--desc">Custom theme on your profile</p>
+    </div>
+    <p class="addon--cost">+2$/mo</p>
+  </div>
+</div>
+
+
+<div id="root" class="summary">
+          <div class="choice--preview">
+            <div class="choice--list">
+              <div class="choice">
+                <p class="type--name">Arcade (Monthly)</p>
+                <p class="change">Change</p>
+              </div>
+              <p class="cost">$9/mo</p>
+            </div>
+            <hr>
+            <div class="choice--list">
+              <p class="addon--service">Online service</p>
+              <p class="cost">$1/mo</p>
+            </div>
+            <div class="choice--list">
+              <p class="addon--service">Larger Storage</p>
+              <p class="cost">$2/mo</p>
+            </div>
+          </div>
+          <div class="total">
+            <p class="total--name">Total (Per Month)</p>
+            <p class="cost">$12/mo</p>
+          </div>
+        </div>

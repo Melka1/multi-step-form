@@ -205,12 +205,11 @@ body main .form form .add--ons > div:hover {
   cursor: pointer;
 }
 body main .form form .add--ons > div .addon--checkbox {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   display: block;
   position: relative;
   cursor: pointer;
-  font-size: 22px;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -226,8 +225,8 @@ body main .form form .add--ons > div .addon--checkbox .checkmark {
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 22px;
+  width: 22px;
   border: 1px solid hsl(229deg, 24%, 87%);
   border-radius: 7px;
 }
@@ -246,8 +245,8 @@ body main .form form .add--ons > div .addon--checkbox input:checked ~ .checkmark
   display: block;
 }
 body main .form form .add--ons > div .addon--checkbox .checkmark:after {
-  left: 9px;
-  top: 5px;
+  left: 7px;
+  top: 3px;
   width: 4px;
   height: 8px;
   border: solid white;
@@ -269,6 +268,66 @@ body main .form form .add--ons > div .add--ons--info .addon--desc {
 body main .form form .add--ons > div .addon--cost {
   margin-left: auto;
   font-size: 0.9rem;
+  color: hsl(243deg, 100%, 62%);
+}
+body main .form form .summary > div {
+  padding: 20px;
+}
+body main .form form .summary .choice--preview {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 10px;
+  background: hsl(217deg, 100%, 97%);
+  border-radius: 10px;
+}
+body main .form form .summary .choice--preview .choice--list:nth-of-type(1) {
+  align-items: center;
+}
+body main .form form .summary .choice--preview .choice--list:nth-of-type(1) .choice {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: hsl(213deg, 96%, 18%);
+}
+body main .form form .summary .choice--preview .choice--list:nth-of-type(1) .choice .type--name {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+body main .form form .summary .choice--preview .choice--list:nth-of-type(1) .choice .change {
+  font-size: 0.8rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-bottom: 1px solid transparent;
+}
+body main .form form .summary .choice--preview .choice--list:nth-of-type(1) .choice .change:hover {
+  color: hsl(243deg, 100%, 62%);
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+body main .form form .summary .choice--preview .choice--list:nth-of-type(1) .cost {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: hsl(213deg, 96%, 18%);
+}
+body main .form form .summary .total, body main .form form .summary .choice--list {
+  display: flex;
+  justify-content: space-between;
+}
+body main .form form .summary .total--name, body main .form form .summary .addon--service {
+  font-size: 0.8rem;
+  color: hsl(231deg, 11%, 63%);
+}
+body main .form form .summary .choice--list .cost {
+  font-size: 0.8rem;
+  color: hsl(213deg, 96%, 18%);
+}
+body main .form form .summary .total {
+  align-items: center;
+}
+body main .form form .summary .total .cost {
+  font-size: 1.2rem;
+  font-weight: 700;
   color: hsl(243deg, 100%, 62%);
 }
 body main .form form .nav--button {
