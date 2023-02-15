@@ -150,9 +150,14 @@ function checkState(e) {
     switch (e) {
         case 1:
             console.log("this is page one")
+            $(".personal #name").val(pages[0].value.username)
+            $(".personal #email").val(pages[0].value.email)
+            $(".personal #phone--number").val(pages[0].value.phoneNumber)
             break;
         case 2:
             console.log("this is page two")
+            handleDurationChange("e")
+            choosePlan(pages[1].value[0])
             break;
         case 3:
             console.log("this is page three")
@@ -181,23 +186,23 @@ function pageChange(e){
     checkState(page);
 }
 
-function handleDurationChange(){
-    pages[1].value[1] = !pages[1].value[1]
+function handleDurationChange(e){
+    if(!e){pages[1].value[1] = !pages[1].value[1]}
     if(pages[1].value[1]){
         $("#root .plan .ad").remove()
         $("#root .arcade .cost").text(`$${cost[0][0]}/mo`)
         $("#root .advanced .cost").text(`$${cost[0][1]}/mo`)
         $("#root .pro .cost").text(`$${cost[0][2]}/mo`)
+        $(".toggle .toggleBar").removeClass("left")
+        $("#root .monYear p").removeClass("choseTime")
     } else {
         $("#root .plan").append('<p class="ad">2 months free</p>')
         $("#root .arcade .cost").text(`$${cost[1][0]}/yr`)
         $("#root .advanced .cost").text(`$${cost[1][1]}/yr`)
         $("#root .pro .cost").text(`$${cost[1][2]}/yr`)
+        $(".toggle .toggleBar").addClass("left")
+        $("#root .monYear p").addClass("choseTime")
     }
-
-    $(".toggle .toggleBar").toggleClass("left")
-    $("#root .monYear p").toggleClass("choseTime")
-    
 }
 
 function choosePlan(id){
