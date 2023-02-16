@@ -47,7 +47,7 @@ let pages = [
                     <p>Yearly</p>
                 </div>
             </div>`,
-        value:[0, true],
+        value:[{}, true],
         title:"Select your plan", 
         subTitle:"You have the option of monthly or yearly billing."
     },
@@ -88,7 +88,10 @@ let pages = [
                 <p class="addon--cost">+2$/mo</p>
                 </div>
             </div>`,
-        value:[false, false, false],
+        value:[
+            {addonName: "Online service", chose:false, price:[1, 10]}, 
+            {addonName: "Larger storage", chose:false, price:[2, 20]},
+            {addonName: "Custom profile", chose:false, price:[2, 20]}],
         title:"Pick add-ons", 
         subTitle:"Add-ons help enhance your gaming experience."
     },
@@ -98,23 +101,16 @@ let pages = [
                 <div class="choice--preview">
                 <div class="choice--list">
                     <div class="choice">
-                    <p class="type--name">Arcade (Monthly)</p>
-                    <p class="change">Change</p>
+                    <p class="type--name"></p>
+                    <p class="change" onclick="pageChange(-2)">Change</p>
                     </div>
                     <p class="cost">$9/mo</p>
                 </div>
                 <hr>
-                <div class="choice--list">
-                    <p class="addon--service">Online service</p>
-                    <p class="cost">$1/mo</p>
-                </div>
-                <div class="choice--list">
-                    <p class="addon--service">Larger Storage</p>
-                    <p class="cost">$2/mo</p>
-                </div>
+                
                 </div>
                 <div class="total">
-                <p class="total--name">Total (Per Month)</p>
+                <p class="total--name"></p>
                 <p class="cost">$12/mo</p>
                 </div>
             </div>`,
@@ -127,6 +123,23 @@ let pages = [
 $("form #form--desc").after(pages[0].pageon)
 
 let cost = [[9, 12, 15], [90, 120, 150]]
+
+let plan = [
+    {   
+        id:0,
+        planName:"Arcade",
+        price: [9, 90]
+    },
+    {
+        id:1,
+        planName:"Advanced",
+        price: [12, 120]
+    },
+    {
+        id:2,
+        planName:"Pro",
+        price: [15, 150]
+    }]
 
 $("form").submit(function(e) {
     e.preventDefault();
@@ -157,16 +170,35 @@ function checkState(e) {
         case 2:
             console.log("this is page two")
             handleDurationChange("e")
-            choosePlan(pages[1].value[0])
+            choosePlan(pages[1].value[0].id)
             break;
         case 3:
             console.log("this is page three")
-            if(pages[2].value[0])choseAddon(0, "e");
-            if(pages[2].value[1])choseAddon(1, "e");
-            if(pages[2].value[2])choseAddon(2, "e");
+            if(pages[2].value[0].chose)choseAddon(0, "e");
+            if(pages[2].value[1].chose)choseAddon(1, "e");
+            if(pages[2].value[2].chose)choseAddon(2, "e");
             break;
         case 4:
+            let sum = 0;
             console.log("this is page four")
+            $('.summary .choice--list .type--name').text(`${pages[1].value[0].planName} ${pages[1].value[1]?"(Monthly)":"(Yearly)"}`)
+            $('.summary .choice--list .cost').text(`$${pages[1].value[1]? pages[1].value[0].price[0]+"/mo":pages[1].value[0].price[1]+"/yr"}`)
+            let list = pages[2].value.filter((val)=>val.chose==true)
+                        .map(each=>{
+                            sum+=each.price[pages[1].value[1]?0:1]
+                            return `
+                            <div class="choice--list">
+                                <p class="addon--service">${each.addonName}</p>
+                                <p class="cost">$${pages[1].value[1]? each.price[0]+"/mo":each.price[1]+"/yr"}</p>
+                            </div>
+                        `})
+            $(".summary .choice--preview").append(list)
+            console.log(list)
+            $(".summary .total--name").text(`Total ${pages[1].value[1]?"(per month)":"(per year)"}`)
+            sum += pages[1].value[1]?pages[1].value[0].price[0]:pages[1].value[0].price[1]
+            console.log(sum)
+            $('.summary .total .cost').text(`$${pages[1].value[1]? sum+"/mo":sum+"/yr"}`)
+
             break;
     }
 
@@ -214,15 +246,15 @@ function choosePlan(id){
     $(`#root .plan:nth-of-type(${id+1})`).css("border-color","hsl(243, 100%, 62%)")
     $(`#root .plan:nth-of-type(${id+1})`).css("background-color","hsl(217, 100%, 97%)")
 
-    pages[1].value[0] = id
+    pages[1].value[0] = plan[id]
     console.log(pages[1])
 }
 
 function choseAddon(id, id2){
-    if(!id2){pages[2].value[id] = !pages[2].value[id]}
-    $(`#root>div:nth-of-type(${id+1}) input`).attr("checked",pages[2].value[id])
-    $(`#root>div:nth-of-type(${id+1})`).css("border-color", pages[2].value[id]?"hsl(243, 100%, 62%)":"hsl(229, 24%, 87%)")
-    $(`#root>div:nth-of-type(${id+1})`).css("background-color", pages[2].value[id]?"hsl(217, 100%, 97%)":"transparent")
+    if(!id2){pages[2].value[id].chose = !pages[2].value[id].chose}
+    $(`#root>div:nth-of-type(${id+1}) input`).attr("checked",pages[2].value[id].chose)
+    $(`#root>div:nth-of-type(${id+1})`).css("border-color", pages[2].value[id].chose?"hsl(243, 100%, 62%)":"hsl(229, 24%, 87%)")
+    $(`#root>div:nth-of-type(${id+1})`).css("background-color", pages[2].value[id].chose?"hsl(217, 100%, 97%)":"transparent")
 }
 
 function handleChange(type){

@@ -183,26 +183,26 @@
 
 
 <div id="root" class="summary">
-          <div class="choice--preview">
-            <div class="choice--list">
-              <div class="choice">
-                <p class="type--name">Arcade (Monthly)</p>
-                <p class="change">Change</p>
-              </div>
-              <p class="cost">$9/mo</p>
-            </div>
-            <hr>
-            <div class="choice--list">
-              <p class="addon--service">Online service</p>
-              <p class="cost">$1/mo</p>
-            </div>
-            <div class="choice--list">
-              <p class="addon--service">Larger Storage</p>
-              <p class="cost">$2/mo</p>
-            </div>
-          </div>
-          <div class="total">
-            <p class="total--name">Total (Per Month)</p>
-            <p class="cost">$12/mo</p>
-          </div>
-        </div>
+  <div class="choice--preview">
+    <div class="choice--list">
+      <div class="choice">
+        <p class="type--name">Arcade (Monthly)</p>
+        <p class="change">Change</p>
+      </div>
+      <p class="cost">$9/mo</p>
+    </div>
+    <hr>
+    <div class="choice--list">
+      <p class="addon--service">Online service</p>
+      <p class="cost">$1/mo</p>
+    </div>
+    <div class="choice--list">
+      <p class="addon--service">Larger Storage</p>
+      <p class="cost">$2/mo</p>
+    </div>
+  </div>
+  <div class="total">
+    <p class="total--name">Total (Per Month)</p>
+    <p class="cost">$12/mo</p>
+  </div>
+</div>
