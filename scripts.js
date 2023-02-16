@@ -4,12 +4,21 @@ let pages = [
     {
         pageon : `
             <div id="root" class="personal">
-                <label for="name">Name</label>
-                <input onchange="handleChange('name')" type="text" id="name" placeholder="e.g. Stephen King">
-                <label for="email">Email Address</label>
-                <input onchange="handleChange('email')" type="email" name="email" id="email" placeholder="e,g, stephenking@lorem.com">
-                <label for="phone--number">Phone Number</label>
-                <input onchange="handleChange('phone--number')" type="tel" name="tel" id="phone--number" placeholder="e.g. +1 234 567 890">
+                <div>
+                    <label for="name">Name</label>
+                    <input onchange="handleChange('name')" type="text" id="name" placeholder="e.g. Stephen King">
+                    <p class="name--error error"></p>
+                </div>
+                <div>
+                    <label for="email">Email Address</label>
+                    <input onchange="handleChange('email')" type="text" name="email" id="email" placeholder="e,g, stephenking@lorem.com">
+                    <p class="email--error error"></p>
+                </div>
+                <div>
+                    <label for="phone--number">Phone Number</label>
+                    <input onchange="handleChange('phone--number')" type="text" name="tel" id="phone--number" placeholder="e.g. +1 234 567 890">
+                    <p class="phone--error error"></p>
+                </div>
             </div>`, 
         value : {username:"", email:"", phoneNumber:""},
         title:"Personal Info", 
@@ -47,7 +56,7 @@ let pages = [
                     <p>Yearly</p>
                 </div>
             </div>`,
-        value:[{}, true],
+        value:[{id:0,planName:"Arcade",price: [9, 90]}, true],
         title:"Select your plan", 
         subTitle:"You have the option of monthly or yearly billing."
     },
@@ -117,6 +126,17 @@ let pages = [
         value:[],
         title:"Finishing up", 
         subTitle:"Double-check everything looks OK before confirming."
+    },
+    {
+        pageon: `
+        <div class="thanks">
+            <img src="./assets/images/icon-thank-you.svg" alt="">
+            <p class="thank--you">Thank you!</p>
+            <p class="thank--desc">Thanks for confirming your subscription! We hope you have fun 
+            using our platform. If you ever need support, please feel free 
+            to email us at support@loremgaming.com.</p>
+        </div>
+        `
     }
 ]
 
@@ -205,6 +225,14 @@ function checkState(e) {
 }
 
 function pageChange(e){
+    let val1 = $(`.personal #name`).val();
+    let val2 = $(`.personal #email`).val();
+    let val3 = $(`.personal #phone--number`).val();
+    if(page == 1){
+        if(!validate("name", val1)) return
+        if(!validate("email", val2)) return
+        if(!validate("phone--number", val3)) return
+    }
     page +=e;
 
     $("form h1").text(pages[page-1].title);
@@ -259,6 +287,8 @@ function choseAddon(id, id2){
 
 function handleChange(type){
     let val = $(`.personal #${type}`).val();
+    if(!validate(type, val))return
+
     console.log($(`.personal #${type}`).val())
     switch(type){
         case "name":
@@ -268,4 +298,67 @@ function handleChange(type){
         case "phone--number":
             pages[0].value.phoneNumber = val
     }
+}
+
+function handleSubmit(){
+    $("form").remove();
+    $(".form").append(pages[4].pageon)
+}
+function validate(type, val){
+    switch(type){
+        case "name":
+            let regex = /^[a-z]+\s[a-z]+$/i; 
+            if(!regex.test(val)){
+                $(`.personal #${type}`).css("border-color","hsl(354, 84%, 57%)")
+                if(val==""){
+                    $(`.personal .name--error`).text("This field is required!")
+                    return false
+                }
+                console.log("It is not valid")
+                $(`.personal .name--error`).text("Use a valid name format! (Full-name)")
+                return false
+            } else {
+                $(`.personal #${type}`).css("border-color","hsl(231, 11%, 63%)")
+                $(`.personal #${type}`).css("color","hsl(213, 96%, 18%)")
+                $(`.personal .name--error`).text("")
+                console.log("It is valid")
+                return true
+            }
+        case "email":
+            let regex2 = /^[a-z0-9]+@[a-z]+.[a-z]{2,4}$/i;
+            if(!regex2.test(val)){
+                $(`.personal #${type}`).css("border-color","hsl(354, 84%, 57%)")
+                if(val==""){
+                    $(`.personal .email--error`).text("This field is required!")
+                    return false
+                }
+                console.log("It is not valid")
+                $(`.personal .email--error`).text("Use a valid email format! (abc@example.com)")
+                return false
+            } else {
+                $(`.personal #${type}`).css("border-color","hsl(231, 11%, 63%)")
+                $(`.personal #${type}`).css("color","hsl(213, 96%, 18%)")
+                $(`.personal .email--error`).text("")
+                console.log("It is valid")
+                return true
+            }
+        case "phone--number":
+            let regex3 = /^[+][0-9]{1,3}-[0-9]{9}$/i;
+            if(!regex3.test(val)){
+                $(`.personal #${type}`).css("border-color","hsl(354, 84%, 57%)")
+                if(val==""){
+                    $(`.personal .phone--error`).text("This field is required!")
+                    return false
+                }
+                console.log("It is not valid")
+                $(`.personal .phone--error`).text("Use a valid phone number format! (+251-931213930)")
+                return false
+            } else {
+                $(`.personal #${type}`).css("border-color","hsl(231, 11%, 63%)")
+                $(`.personal #${type}`).css("color","hsl(213, 96%, 18%)")
+                $(`.personal .phone--error`).text("")
+                console.log("It is valid")
+                return true
+            }
+    }   
 }

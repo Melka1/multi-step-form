@@ -113,6 +113,16 @@ body {
                 }
 
                 .personal {
+                    &>div{
+                        position: relative;
+                        .error {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            font-size: 0.8rem;
+                            color: $Strawberry-red;
+                        }
+                    }
                     input, label {
                         display: block;
                         width: 100%;
@@ -133,6 +143,10 @@ body {
                         border: 1px solid $Cool-gray;
                         padding-left: 15px;
                         font-weight: 600;
+                        &:focus{
+                            outline: none;
+                            border: 1px solid $Purplish-blue;
+                        }
                     }
                 }
 
@@ -386,6 +400,30 @@ body {
                     button:hover {
                         cursor: pointer;
                     }
+                }
+            }
+            .thanks {
+                width: 75%;
+                height: 100%;
+                display: flex;
+                margin: auto;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+                padding-bottom: 20px;
+                .thank--desc {
+                    font-size: 0.9rem;
+                    color: $Cool-gray;
+                }
+                .thank--you {
+                    font-size: 2rem;
+                    font-weight: 700;
+                    color: $Marine-blue;
+                }
+                img {
+                    margin-bottom: 20px;
                 }
             }
         }

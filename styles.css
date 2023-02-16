@@ -103,6 +103,16 @@ body main .form form > p {
   font-size: 14px;
   color: hsl(231deg, 11%, 63%);
 }
+body main .form form .personal > div {
+  position: relative;
+}
+body main .form form .personal > div .error {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.8rem;
+  color: hsl(354deg, 84%, 57%);
+}
 body main .form form .personal input, body main .form form .personal label {
   display: block;
   width: 100%;
@@ -123,6 +133,10 @@ body main .form form .personal input {
   border: 1px solid hsl(231deg, 11%, 63%);
   padding-left: 15px;
   font-weight: 600;
+}
+body main .form form .personal input:focus {
+  outline: none;
+  border: 1px solid hsl(243deg, 100%, 62%);
 }
 body main .form form .plan--choice {
   display: grid;
@@ -363,6 +377,30 @@ body main .form form .nav--button button[type=submit]:hover {
 }
 body main .form form .nav--button button:hover {
   cursor: pointer;
+}
+body main .form .thanks {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+body main .form .thanks .thank--desc {
+  font-size: 0.9rem;
+  color: hsl(231deg, 11%, 63%);
+}
+body main .form .thanks .thank--you {
+  font-size: 2rem;
+  font-weight: 700;
+  color: hsl(213deg, 96%, 18%);
+}
+body main .form .thanks img {
+  margin-bottom: 20px;
 }
 
 .attribution {
