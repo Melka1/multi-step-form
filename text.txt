@@ -104,7 +104,7 @@
 
   <div id="root" class="personal">
     <label for="name">Name</label>
-    <input type="text" id="name" placeholder="e.g. Stephen King">
+    <input type="text" id="name" placeholder="e.g. Stephen King" >
     <label for="email">Email Address</label>
     <input type="email" name="email" id="email" placeholder="e,g, stephenking@lorem.com">
     <label for="phone--number">Phone Number</label>
@@ -206,3 +206,22 @@
     <p class="cost">$12/mo</p>
   </div>
 </div>
+
+
+<form action="#">
+  <h1>Personal info</h1>
+  <p id="form--desc">Please provide your name, email address, and phone number.</p>
+  <div class="nav--button">
+    <button onclick="pageChange(-1)" class="go--back">Go Back</button>
+    <button onclick="pageChange(1)" class="next--step">Next Step</button>
+    <button type="submit" onclick="handleSubmit()">Confirm</button>
+  </div>
+</form>
+
+  <div class="thanks">
+    <img src="./assets/images/icon-thank-you.svg" alt="">
+    <p class="thank--you">Thank you!</p>
+    <p class="thank--desc">Thanks for confirming your subscription! We hope you have fun 
+      using our platform. If you ever need support, please feel free 
+      to email us at support@loremgaming.com.</p>
+  </div>
