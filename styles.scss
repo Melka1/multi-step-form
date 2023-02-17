@@ -490,13 +490,13 @@ body {
                 background: white;
                 margin: auto;
                 border-radius: 10px;
+                .thanks {
+                    min-height: 450px !important;
+                }
                 form{
                     width: 85%;
                     #root {
                         margin-bottom: 20px;
-                    }
-                    .thanks {
-                        min-height: 500px !important;
                     }
                     .plan--choice {
                         display: block;

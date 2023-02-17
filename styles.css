@@ -462,14 +462,14 @@ body main .form .thanks img {
     margin: auto;
     border-radius: 10px;
   }
+  body main .form .thanks {
+    min-height: 450px !important;
+  }
   body main .form form {
     width: 85%;
   }
   body main .form form #root {
     margin-bottom: 20px;
-  }
-  body main .form form .thanks {
-    min-height: 500px !important;
   }
   body main .form form .plan--choice {
     display: block;
