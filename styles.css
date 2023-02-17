@@ -442,9 +442,10 @@ body main .form .thanks img {
   body main .navigation {
     width: auto;
     border-radius: 0;
-    padding: 30px 75px;
+    padding: 55px 75px;
     padding-bottom: 70px;
     background: url("./assets/images/bg-sidebar-mobile.svg");
+    background-size: cover;
   }
   body main .navigation ul {
     display: flex;
@@ -455,7 +456,7 @@ body main .form .thanks img {
   }
   body main .form {
     position: relative;
-    top: -65px;
+    top: -70px;
     width: 90%;
     background: white;
     margin: auto;
@@ -466,6 +467,9 @@ body main .form .thanks img {
   }
   body main .form form #root {
     margin-bottom: 20px;
+  }
+  body main .form form .thanks {
+    min-height: 500px !important;
   }
   body main .form form .plan--choice {
     display: block;
@@ -486,5 +490,8 @@ body main .form .thanks img {
     background-color: white;
     width: 100%;
     padding: 15px 20px;
+  }
+  footer {
+    display: none;
   }
 }/*# sourceMappingURL=styles.css.map */

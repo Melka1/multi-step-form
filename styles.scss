@@ -469,10 +469,10 @@ body {
             .navigation {
                 width: auto;
                 border-radius: 0;
-                padding: 30px 75px;
+                padding: 55px 75px;
                 padding-bottom: 70px;
                 background: url("./assets/images/bg-sidebar-mobile.svg");
-                background-size: ;
+                background-size: cover;
                 ul {
                     display: flex;
                     justify-content: space-evenly;
@@ -485,19 +485,19 @@ body {
             }
             .form {
                 position: relative;
-                top: -65px;
+                top: -70px;
                 width: 90%;
                 background: white;
                 margin: auto;
                 border-radius: 10px;
                 form{
+                    width: 85%;
                     #root {
                         margin-bottom: 20px;
                     }
-                    #root, .thanks {
-                        // min-height: 500px;
+                    .thanks {
+                        min-height: 500px !important;
                     }
-                    width: 85%;
                     .plan--choice {
                         display: block;
                         & .plan {
@@ -521,5 +521,8 @@ body {
                 }
             }
         }
+    }
+    footer {
+        display: none;
     }
 }
