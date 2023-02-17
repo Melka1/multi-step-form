@@ -143,9 +143,10 @@ body {
                         border: 1px solid $Cool-gray;
                         padding-left: 15px;
                         font-weight: 600;
-                        &:focus{
+                        &:focus, &:hover, &:active{
                             outline: none;
                             border: 1px solid $Purplish-blue;
+                            background-color: none;
                         }
                     }
                 }
@@ -452,4 +453,73 @@ body {
     font-size: 0.7rem;
     color: $Marine-blue;
     margin-top: 10px;
+}
+
+
+@media screen and (width<=500px) {
+    body {
+        height: auto;
+        font-size: 14px;
+        main {
+            width: 100%;
+            min-height: none;
+            padding: 0;
+            flex-direction: column;
+            background: none;
+            .navigation {
+                width: auto;
+                border-radius: 0;
+                padding: 30px 75px;
+                padding-bottom: 70px;
+                background: url("./assets/images/bg-sidebar-mobile.svg");
+                background-size: ;
+                ul {
+                    display: flex;
+                    justify-content: space-evenly;
+                    li {
+                        &>div .desc {
+                            display: none;
+                        }
+                    }
+                }
+            }
+            .form {
+                position: relative;
+                top: -65px;
+                width: 90%;
+                background: white;
+                margin: auto;
+                border-radius: 10px;
+                form{
+                    #root {
+                        margin-bottom: 20px;
+                    }
+                    #root, .thanks {
+                        // min-height: 500px;
+                    }
+                    width: 85%;
+                    .plan--choice {
+                        display: block;
+                        & .plan {
+                            margin-bottom: 10px;
+                            flex-direction: row;
+                            align-items: flex-start;
+                            img {
+                                margin: 0;
+                                margin-right: 20px;
+                            }
+                        }
+                    }
+                    .nav--button {
+                        position: fixed;
+                        bottom: 0;
+                        left: 0;
+                        background-color: white;
+                        width: 100%;
+                        padding: 15px 20px;
+                    }
+                }
+            }
+        }
+    }
 }

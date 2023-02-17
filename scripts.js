@@ -64,37 +64,37 @@ let pages = [
         pageon : `
             <div id="root" class="add--ons">
                 <div class="online--service" onclick="choseAddon(0)">
-                <div class="addon--checkbox">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </div>
-                <div class="add--ons--info">
-                    <p class="addon--name">Online Service</p>
-                    <p class="addon--desc">Access to multiplayer games</p>
-                </div>
-                <p class="addon--cost">+1$/mo</p>
+                    <div class="addon--checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </div>
+                    <div class="add--ons--info">
+                        <p class="addon--name">Online Service</p>
+                        <p class="addon--desc">Access to multiplayer games</p>
+                    </div>
+                    <p class="addon--cost">+1$/mo</p>
                 </div>
                 <div class="larger--storage" onclick="choseAddon(1)">
-                <div class="addon--checkbox">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </div>
-                <div class="add--ons--info">
-                    <p class="addon--name">Larger Storage</p>
-                    <p class="addon--desc">Extra 1TB of cloud save</p>
-                </div>
-                <p class="addon--cost">+2$/mo</p>
+                    <div class="addon--checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </div>
+                    <div class="add--ons--info">
+                        <p class="addon--name">Larger Storage</p>
+                        <p class="addon--desc">Extra 1TB of cloud save</p>
+                    </div>
+                    <p class="addon--cost">+2$/mo</p>
                 </div>
                 <div class="custom--profile" onclick="choseAddon(2)">
-                <div class="addon--checkbox">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </div>
-                <div class="add--ons--info">
-                    <p class="addon--name">Customizable Profile</p>
-                    <p class="addon--desc">Custom theme on your profile</p>
-                </div>
-                <p class="addon--cost">+2$/mo</p>
+                    <div class="addon--checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </div>
+                    <div class="add--ons--info">
+                        <p class="addon--name">Customizable Profile</p>
+                        <p class="addon--desc">Custom theme on your profile</p>
+                    </div>
+                    <p class="addon--cost">+2$/mo</p>
                 </div>
             </div>`,
         value:[
@@ -194,6 +194,9 @@ function checkState(e) {
             break;
         case 3:
             console.log("this is page three")
+            $(".add--ons .online--service .addon--cost").text(`+$${pages[1].value[1]?pages[2].value[0].price[0]+"/mo":pages[2].value[0].price[1]+"/yr"}`)
+            $(".add--ons .larger--storage .addon--cost").text(`+$${pages[1].value[1]?pages[2].value[1].price[0]+"/mo":pages[2].value[1].price[1]+"/yr"}`)
+            $(".add--ons .custom--profile .addon--cost").text(`+$${pages[1].value[1]?pages[2].value[2].price[0]+"/mo":pages[2].value[2].price[1]+"/yr"}`)
             if(pages[2].value[0].chose)choseAddon(0, "e");
             if(pages[2].value[1].chose)choseAddon(1, "e");
             if(pages[2].value[2].chose)choseAddon(2, "e");
@@ -252,14 +255,14 @@ function pageChange(e){
 function handleDurationChange(e){
     if(!e){pages[1].value[1] = !pages[1].value[1]}
     if(pages[1].value[1]){
-        $("#root .plan .ad").remove()
+        $("#root .plan--info .ad").remove()
         $("#root .arcade .cost").text(`$${cost[0][0]}/mo`)
         $("#root .advanced .cost").text(`$${cost[0][1]}/mo`)
         $("#root .pro .cost").text(`$${cost[0][2]}/mo`)
         $(".toggle .toggleBar").removeClass("left")
         $("#root .monYear p").removeClass("choseTime")
     } else {
-        $("#root .plan").append('<p class="ad">2 months free</p>')
+        $("#root .plan--info").append('<p class="ad">2 months free</p>')
         $("#root .arcade .cost").text(`$${cost[1][0]}/yr`)
         $("#root .advanced .cost").text(`$${cost[1][1]}/yr`)
         $("#root .pro .cost").text(`$${cost[1][2]}/yr`)
@@ -304,6 +307,7 @@ function handleSubmit(){
     $("form").remove();
     $(".form").append(pages[4].pageon)
 }
+
 function validate(type, val){
     switch(type){
         case "name":

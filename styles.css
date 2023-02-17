@@ -134,9 +134,10 @@ body main .form form .personal input {
   padding-left: 15px;
   font-weight: 600;
 }
-body main .form form .personal input:focus {
+body main .form form .personal input:focus, body main .form form .personal input:hover, body main .form form .personal input:active {
   outline: none;
   border: 1px solid hsl(243deg, 100%, 62%);
+  background-color: none;
 }
 body main .form form .plan--choice {
   display: grid;
@@ -424,4 +425,66 @@ body main .form .thanks img {
   font-size: 0.7rem;
   color: hsl(213deg, 96%, 18%);
   margin-top: 10px;
+}
+
+@media screen and (width <= 500px) {
+  body {
+    height: auto;
+    font-size: 14px;
+  }
+  body main {
+    width: 100%;
+    min-height: none;
+    padding: 0;
+    flex-direction: column;
+    background: none;
+  }
+  body main .navigation {
+    width: auto;
+    border-radius: 0;
+    padding: 30px 75px;
+    padding-bottom: 70px;
+    background: url("./assets/images/bg-sidebar-mobile.svg");
+  }
+  body main .navigation ul {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  body main .navigation ul li > div .desc {
+    display: none;
+  }
+  body main .form {
+    position: relative;
+    top: -65px;
+    width: 90%;
+    background: white;
+    margin: auto;
+    border-radius: 10px;
+  }
+  body main .form form {
+    width: 85%;
+  }
+  body main .form form #root {
+    margin-bottom: 20px;
+  }
+  body main .form form .plan--choice {
+    display: block;
+  }
+  body main .form form .plan--choice .plan {
+    margin-bottom: 10px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  body main .form form .plan--choice .plan img {
+    margin: 0;
+    margin-right: 20px;
+  }
+  body main .form form .nav--button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    padding: 15px 20px;
+  }
 }/*# sourceMappingURL=styles.css.map */
